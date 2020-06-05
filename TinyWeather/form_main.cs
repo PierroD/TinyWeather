@@ -85,7 +85,11 @@ namespace TinyWeather
 
                 #region left_panel
                 lbl_cityName.Text = weather.name;
+                if(rbtn_celsius.Checked)
                 lbl_temperature.Text = Math.Round(ktoCelsius(weather.main.temp), 1).ToString();
+                if (rbtn_fahrenheit.Checked)
+                    lbl_temperature.Text = Math.Round(ktoFahreneit(weather.main.temp), 1).ToString();
+
                 lbl_temperatureUnit.Location = new Point(lbl_temperature.Width - 3, lbl_temperatureUnit.Location.Y);
                 lbl_day.Text = $"{today.DayOfWeek},";
                 lbl_hour.Location = new Point(lbl_day.Location.X + lbl_day.Width, lbl_day.Location.Y);
