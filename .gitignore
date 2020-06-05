@@ -1,5 +1,5 @@
 #ignore the solution (.sln)
-#.sln
+*.sln
 
 #ignore the Visual studio temp something (.vs folder)
 .vs/
@@ -10,3 +10,6 @@
 
 #ignore the portable version (.pdb)
 *.pdb
+
+#ignore packages
+packages
