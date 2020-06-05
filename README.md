@@ -32,7 +32,7 @@ Les sources des documents utilisés :
 
 ### Londre
 
-![ ](https://imgur.com/gOBqEHT)
+![ ](https://github.com/PierroD/TinyWeather/blob/master/TinyWeather.png?raw=true)
 
 ### Tokyo
-![ ](https://imgur.com/e8s7dk6)
+![ ](https://github.com/PierroD/TinyWeather/blob/master/TinyWeather2.png?raw=true))
