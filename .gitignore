@@ -1,0 +1,12 @@
+#ignore the solution (.sln)
+#.sln
+
+#ignore the Visual studio temp something (.vs folder)
+.vs/
+
+#ignore the logfiles & txtfiles
+*.log
+*.txt
+
+#ignore the portable version (.pdb)
+*.pdb
