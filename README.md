@@ -31,7 +31,7 @@ Les sources des documents utilisés :
 
 Télécharger le lien ci dessous :
 
-TinyWeather release : <a href="https://raw.githubusercontent.com/PierroD/TinyWeather/raw/master/TinyWeather/bin/Release/TinyWeather.zip">Download link</a>
+TinyWeather release : <a href="https://raw.githubusercontent.com/PierroD/TinyWeather/master/bin/Release/TinyWeather.zip">Download link</a>
 
 Extraire l'archive (ne pas supprimer les .dll ils sont importants pour le bon fonctionnement de l'appliation).
 
