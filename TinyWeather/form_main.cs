@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TinyWeather.Utils;
 using TinyWeather.Core;
 using TinyWeather.Properties;
+using System.Threading;
+using System.Reflection;
 
 namespace TinyWeather
 {
@@ -19,10 +23,72 @@ namespace TinyWeather
         {
             InitializeComponent();
         }
-
+        static string configFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\config.ini";
+       
+        INIFile ini = new INIFile(configFile);
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadElements("London");
+            if (File.Exists(configFile))
+                LoadElements(ini.IniReadValue("Settings", "StartCity"));
+            else
+                LoadElements("London");
+
+            #region Darkmode
+            (Color, Color, Color) colors = Utils.Utils.CheckDarkMode(bool.Parse(ini.IniReadValue("Settings", "DarkMode")));
+            this.BackColor = colors.Item2;
+
+            #region left panel
+            lbl_cityName.BackColor = colors.Item1;
+            lbl_cityName.ForeColor = colors.Item3;
+            pbox_globalStatus.BaseColor = colors.Item1;
+            lbl_temperature.ForeColor = colors.Item3;
+            lbl_temperatureUnit.ForeColor = colors.Item3;
+            lbl_day.ForeColor = colors.Item3;
+            lbl_description.ForeColor = colors.Item3;
+            tbox_search.ForeColor = colors.Item3;
+            tbox_search.BackColor = colors.Item1;
+            pnl_left.BackColor = colors.Item1;
+
+            #endregion
+
+            #region main
+            lbl_today.ForeColor = colors.Item3;
+            btn_close.IconColor = colors.Item3;
+
+            #region Wind
+            lbl_windSpeed.ForeColor = colors.Item3;
+            lbl_windUnit.ForeColor = colors.Item3;
+            lbl_windUnit.ForeColor = colors.Item3;
+            lbl_windDirection.ForeColor = colors.Item3;
+            pnl_wind.BaseColor = colors.Item1;
+
+            #endregion
+
+            #region sunriseSunset
+            lbl_sunrise.ForeColor = colors.Item3;
+            lbl_sunset.ForeColor = colors.Item3;
+            pnl_sunriseSunset.BaseColor = colors.Item1;
+            #endregion
+
+            #region visibility
+            lbl_visibility.ForeColor = colors.Item3;
+            lbl_visibilityUnit.ForeColor = colors.Item3;
+            lbl_visibilityText.ForeColor = colors.Item3;
+            pnl_visibility.BaseColor = colors.Item1;
+            #endregion
+
+            #region humidity
+            lbl_humidity.ForeColor = colors.Item3;
+            lbl_humidityUnit.ForeColor = colors.Item3;
+            lbl_humidityText.ForeColor = colors.Item3;
+            pnl_humidity.BaseColor = colors.Item1;
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
         }
         private dynamic weather;
         public async void LoadElements(string cityName)
@@ -33,17 +99,15 @@ namespace TinyWeather
 
                 weather = await WeatherService.load(cityName);
 
-
-
                 #region wind speed
                 lbl_windSpeed.Text = weather.wind.speed.ToString();
                 lbl_windUnit.Location = new Point(lbl_windSpeed.Width - 2, lbl_windUnit.Location.Y);
-                lbl_windDirection.Text = windDirection(weather.wind.deg);
+                lbl_windDirection.Text = Utils.Utils.windDirection(weather.wind.deg);
                 #endregion
 
                 #region sunset&sunrise
-                lbl_sunrise.Text = ConvertFromUnixTimestamp(weather.sys.sunrise).ToLocalTime().ToString(@"hh\:mm") + " AM";
-                lbl_sunset.Text = ConvertFromUnixTimestamp(weather.sys.sunset).ToLocalTime().ToString(@"hh\:mm") + " PM";
+                lbl_sunrise.Text = Utils.Utils.ConvertFromUnixTimestamp(weather.sys.sunrise).ToLocalTime().ToString(@"hh\:mm") + " AM";
+                lbl_sunset.Text = Utils.Utils.ConvertFromUnixTimestamp(weather.sys.sunset).ToLocalTime().ToString(@"hh\:mm") + " PM";
                 #endregion
 
                 #region visibility
@@ -69,26 +133,26 @@ namespace TinyWeather
                 lbl_humidity.Text = humidity.ToString();
                 lbl_humidityUnit.Location = new Point(lbl_humidity.Width - 2, lbl_humidityUnit.Location.Y);
                 tbar_humidity.Value = humidity;
-                switch (ktoCelsius(weather.main.temp))
+                switch (Utils.Utils.ktoCelsius(weather.main.temp))
                 {
                     case double n when ((n >= 20 && n <= 40 && humidity <= 40) || (n >= 10 && n <= 20 && humidity <= 30) || (n <= 10 && humidity <= 20)):
                         lbl_humidityText.Text = "Normal";
                         break;
                     case double n when (humidity <= 10):
-                        lbl_humidityText.Text = "Too dry";
+                        lbl_humidityText.Text = "Dry";
                         break;
                     default:
-                        lbl_humidityText.Text = "Too wet";
+                        lbl_humidityText.Text = "Wet";
                         break;
                 }
                 #endregion
 
                 #region left_panel
                 lbl_cityName.Text = weather.name;
-                if(rbtn_celsius.Checked)
-                lbl_temperature.Text = Math.Round(ktoCelsius(weather.main.temp), 1).ToString();
+                if (rbtn_celsius.Checked)
+                    lbl_temperature.Text = Math.Round(Utils.Utils.ktoCelsius(weather.main.temp), 1).ToString();
                 if (rbtn_fahrenheit.Checked)
-                    lbl_temperature.Text = Math.Round(ktoFahreneit(weather.main.temp), 1).ToString();
+                    lbl_temperature.Text = Math.Round(Utils.Utils.ktoFahreneit(weather.main.temp), 1).ToString();
 
                 lbl_temperatureUnit.Location = new Point(lbl_temperature.Width - 3, lbl_temperatureUnit.Location.Y);
                 lbl_day.Text = $"{today.DayOfWeek},";
@@ -99,52 +163,28 @@ namespace TinyWeather
                 pbox_city.Load($"https://www.countryflags.io/{weather.sys.country}/shiny/64.png");
                 #endregion
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"{tbox_search.Text} doesn't exist inside our database or in real life", "City not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        #region Utils
-        static double ktoCelsius(double k)
-        {
-            return (k - 273.15);
-        }
-
-        static double ktoFahreneit(double k)
-        {
-            return ((k - 273.15) * 9 / 5 + 32);
-        }
-
-        static string windDirection(int num)
-        {
-            int val = (int)((num / 22.5) + 0.5);
-            string[] windDirection = { "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW" };
-            return windDirection[(val % 16)];
-        }
-
-        static DateTime ConvertFromUnixTimestamp(double timestamp)
-        {
-            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);//on recupere la date zero de référence : le 1/1/1970 00:00:00
-            return origin.AddSeconds(timestamp);//on ajoute le timestamp (nombre de secondes depuis la date zero)
-        }
-        #endregion
-
 
         private void rbtn_celsius_Click(object sender, EventArgs e)
         {
             lbl_temperatureUnit.Text = "°C";
-            lbl_temperature.Text = Math.Round(ktoCelsius(weather.main.temp), 1).ToString();
+            lbl_temperature.Text = Math.Round(Utils.Utils.ktoCelsius(weather.main.temp), 1).ToString();
             lbl_temperatureUnit.Location = new Point(lbl_temperature.Width - 3, lbl_temperatureUnit.Location.Y);
         }
 
         private void rbtn_fahrenheit_Click(object sender, EventArgs e)
         {
             lbl_temperatureUnit.Text = "°F";
-            lbl_temperature.Text = Math.Round(ktoFahreneit(weather.main.temp), 1).ToString();
+            lbl_temperature.Text = Math.Round(Utils.Utils.ktoFahreneit(weather.main.temp), 1).ToString();
             lbl_temperatureUnit.Location = new Point(lbl_temperature.Width - 3, lbl_temperatureUnit.Location.Y);
         }
 
+        #region tbox search
         private void btn_search_Click(object sender, EventArgs e)
         {
             LoadElements(tbox_search.Text);
@@ -162,5 +202,22 @@ namespace TinyWeather
                 tbox_search.Text = "Search for places ...";
 
         }
+
+        private void tbox_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btn_search.PerformClick();
+        }
+        #endregion
+
+        Form settings = null;
+        private void btn_settings_Click(object sender, EventArgs e)
+        {
+            if (settings == null)
+                settings = new form_settings();
+
+            settings.Show();
+        }
+
     }
 }

@@ -263,6 +263,26 @@ namespace TinyWeather.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap settings_off {
+            get {
+                object obj = ResourceManager.GetObject("settings_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_on {
+            get {
+                object obj = ResourceManager.GetObject("settings_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sunsetsunrise {
             get {
                 object obj = ResourceManager.GetObject("sunsetsunrise", resourceCulture);

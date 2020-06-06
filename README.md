@@ -27,6 +27,19 @@ Les sources des documents utilisés :
 
 - [Framework pour le front (GunaUI)](https://github.com/sobatdata/Guna.UI-Framework-Lib)
 
+## Installer & utiliser 
+
+Télécharger le lien ci dessous :
+
+TinyWeather release : <a href="https://raw.githubusercontent.com/PierroD/TinyWeather/master/bin/Release/TinyWeather.zip">Download link</a>
+
+Extraire l'archive (ne pas supprimer les .dll ils sont importants pour le bon fonctionnement de l'appliation).
+
+Pour sélectionner une ville par défaut au démarrage de l'application, il suffit de cliquer sur l'icon en forme d'écrou.
+
+Une fenêtre va vous permettre de changer la ville par défaut ou de passer en mode sombre ("DarkMode").
+![ ](./screenshots/TinyWeather3.png)
+
 
 ## Rendu final
 
@@ -35,4 +48,7 @@ Les sources des documents utilisés :
 ![ ](./screenshots/TinyWeather.png)
 
 ### Tokyo
-![ ](./screenshots/TinyWeather2.png))
+![ ](./screenshots/TinyWeather2.png)
+
+### Settings 
+![ ](./screenshots/TinyWeather3.png)

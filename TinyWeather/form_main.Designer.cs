@@ -29,54 +29,56 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_main));
             this.elipse_form = new Guna.UI.WinForms.GunaElipse(this.components);
             this.pnl_left = new Guna.UI.WinForms.GunaPanel();
+            this.btn_settings = new Guna.UI.WinForms.GunaCircleButton();
+            this.lbl_cityName = new Guna.UI.WinForms.GunaLabel();
             this.btn_search = new Guna.UI.WinForms.GunaCircleButton();
             this.tbox_search = new Guna.UI.WinForms.GunaLineTextBox();
             this.pbox_city = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_description = new Guna.UI.WinForms.GunaLabel();
-            this.gunaSeparator2 = new Guna.UI.WinForms.GunaSeparator();
+            this.sep_left = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_hour = new Guna.UI.WinForms.GunaLabel();
             this.lbl_day = new Guna.UI.WinForms.GunaLabel();
             this.lbl_temperatureUnit = new Guna.UI.WinForms.GunaLabel();
             this.lbl_temperature = new Guna.UI.WinForms.GunaLabel();
             this.pbox_globalStatus = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaSeparator1 = new Guna.UI.WinForms.GunaSeparator();
+            this.lbl_today = new Guna.UI.WinForms.GunaLabel();
+            this.sep_day = new Guna.UI.WinForms.GunaSeparator();
             this.rbtn_celsius = new Guna.UI.WinForms.GunaAdvenceButton();
             this.rbtn_fahrenheit = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pnl_humidity = new Guna.UI.WinForms.GunaElipsePanel();
             this.lbl_humidityText = new Guna.UI.WinForms.GunaLabel();
             this.lbl_humidityUnit = new Guna.UI.WinForms.GunaLabel();
             this.tbar_humidity = new Guna.UI.WinForms.GunaVTrackBar();
             this.lbl_humidity = new Guna.UI.WinForms.GunaLabel();
             this.lbl_humidityTitle = new Guna.UI.WinForms.GunaLabel();
-            this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pnl_visibility = new Guna.UI.WinForms.GunaElipsePanel();
             this.lbl_visibilityText = new Guna.UI.WinForms.GunaLabel();
             this.lbl_visibilityUnit = new Guna.UI.WinForms.GunaLabel();
             this.lbl_visibility = new Guna.UI.WinForms.GunaLabel();
             this.lbl_visibilityTitle = new Guna.UI.WinForms.GunaLabel();
-            this.gunaElipsePanel3 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pnl_wind = new Guna.UI.WinForms.GunaElipsePanel();
             this.lbl_windDirection = new Guna.UI.WinForms.GunaLabel();
             this.lbl_windUnit = new Guna.UI.WinForms.GunaLabel();
             this.lbl_windSpeed = new Guna.UI.WinForms.GunaLabel();
             this.lbl_windTitle = new Guna.UI.WinForms.GunaLabel();
-            this.pbox_sunriseSunset = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pnl_sunriseSunset = new Guna.UI.WinForms.GunaElipsePanel();
             this.lbl_sunset = new Guna.UI.WinForms.GunaLabel();
             this.lbl_sunrise = new Guna.UI.WinForms.GunaLabel();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
+            this.pbox_sunriseSunset = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_sunriseSunsetTitle = new Guna.UI.WinForms.GunaLabel();
             this.drag_form = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.lbl_cityName = new Guna.UI.WinForms.GunaLabel();
-            this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
+            this.btn_close = new Guna.UI.WinForms.GunaControlBox();
             this.pnl_left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).BeginInit();
-            this.gunaElipsePanel1.SuspendLayout();
-            this.gunaElipsePanel2.SuspendLayout();
-            this.gunaElipsePanel3.SuspendLayout();
-            this.pbox_sunriseSunset.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
+            this.pnl_humidity.SuspendLayout();
+            this.pnl_visibility.SuspendLayout();
+            this.pnl_wind.SuspendLayout();
+            this.pnl_sunriseSunset.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunriseSunset)).BeginInit();
             this.SuspendLayout();
             // 
             // elipse_form
@@ -87,12 +89,13 @@
             // pnl_left
             // 
             this.pnl_left.BackColor = System.Drawing.Color.White;
+            this.pnl_left.Controls.Add(this.btn_settings);
             this.pnl_left.Controls.Add(this.lbl_cityName);
             this.pnl_left.Controls.Add(this.btn_search);
             this.pnl_left.Controls.Add(this.tbox_search);
             this.pnl_left.Controls.Add(this.pbox_city);
             this.pnl_left.Controls.Add(this.lbl_description);
-            this.pnl_left.Controls.Add(this.gunaSeparator2);
+            this.pnl_left.Controls.Add(this.sep_left);
             this.pnl_left.Controls.Add(this.lbl_hour);
             this.pnl_left.Controls.Add(this.lbl_day);
             this.pnl_left.Controls.Add(this.lbl_temperatureUnit);
@@ -103,6 +106,39 @@
             this.pnl_left.Name = "pnl_left";
             this.pnl_left.Size = new System.Drawing.Size(232, 644);
             this.pnl_left.TabIndex = 0;
+            // 
+            // btn_settings
+            // 
+            this.btn_settings.AnimationHoverSpeed = 0.07F;
+            this.btn_settings.AnimationSpeed = 0.03F;
+            this.btn_settings.BaseColor = System.Drawing.Color.White;
+            this.btn_settings.BorderColor = System.Drawing.Color.Black;
+            this.btn_settings.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_settings.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_settings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_settings.ForeColor = System.Drawing.Color.White;
+            this.btn_settings.Image = global::TinyWeather.Properties.Resources.settings_off;
+            this.btn_settings.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_settings.Location = new System.Drawing.Point(178, 581);
+            this.btn_settings.Name = "btn_settings";
+            this.btn_settings.OnHoverBaseColor = System.Drawing.Color.DimGray;
+            this.btn_settings.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_settings.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_settings.OnHoverImage = global::TinyWeather.Properties.Resources.settings_on;
+            this.btn_settings.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_settings.Size = new System.Drawing.Size(40, 40);
+            this.btn_settings.TabIndex = 18;
+            this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
+            // 
+            // lbl_cityName
+            // 
+            this.lbl_cityName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cityName.ForeColor = System.Drawing.Color.Black;
+            this.lbl_cityName.Location = new System.Drawing.Point(3, 77);
+            this.lbl_cityName.Name = "lbl_cityName";
+            this.lbl_cityName.Size = new System.Drawing.Size(229, 41);
+            this.lbl_cityName.TabIndex = 17;
+            this.lbl_cityName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_search
             // 
@@ -142,12 +178,13 @@
             this.tbox_search.TabIndex = 15;
             this.tbox_search.Text = "Search for places ...";
             this.tbox_search.Enter += new System.EventHandler(this.tbox_search_Enter);
+            this.tbox_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbox_search_KeyPress);
             this.tbox_search.Leave += new System.EventHandler(this.tbox_search_Leave);
             // 
             // pbox_city
             // 
             this.pbox_city.BackColor = System.Drawing.Color.Transparent;
-            this.pbox_city.BaseColor = System.Drawing.Color.White;
+            this.pbox_city.BaseColor = System.Drawing.Color.Transparent;
             this.pbox_city.Location = new System.Drawing.Point(28, 557);
             this.pbox_city.Name = "pbox_city";
             this.pbox_city.Radius = 15;
@@ -158,6 +195,7 @@
             // lbl_description
             // 
             this.lbl_description.AutoSize = true;
+            this.lbl_description.BackColor = System.Drawing.Color.Transparent;
             this.lbl_description.Font = new System.Drawing.Font("Calibri", 12F);
             this.lbl_description.ForeColor = System.Drawing.Color.Black;
             this.lbl_description.Location = new System.Drawing.Point(24, 535);
@@ -166,17 +204,18 @@
             this.lbl_description.TabIndex = 10;
             this.lbl_description.Text = "Mostly Cloudy";
             // 
-            // gunaSeparator2
+            // sep_left
             // 
-            this.gunaSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(166)))), ((int)(((byte)(172)))));
-            this.gunaSeparator2.Location = new System.Drawing.Point(13, 517);
-            this.gunaSeparator2.Name = "gunaSeparator2";
-            this.gunaSeparator2.Size = new System.Drawing.Size(205, 10);
-            this.gunaSeparator2.TabIndex = 13;
+            this.sep_left.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(166)))), ((int)(((byte)(172)))));
+            this.sep_left.Location = new System.Drawing.Point(13, 517);
+            this.sep_left.Name = "sep_left";
+            this.sep_left.Size = new System.Drawing.Size(205, 10);
+            this.sep_left.TabIndex = 13;
             // 
             // lbl_hour
             // 
             this.lbl_hour.AutoSize = true;
+            this.lbl_hour.BackColor = System.Drawing.Color.Transparent;
             this.lbl_hour.Font = new System.Drawing.Font("Segoe UI", 17F);
             this.lbl_hour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(166)))), ((int)(((byte)(172)))));
             this.lbl_hour.Location = new System.Drawing.Point(129, 463);
@@ -188,6 +227,7 @@
             // lbl_day
             // 
             this.lbl_day.AutoSize = true;
+            this.lbl_day.BackColor = System.Drawing.Color.Transparent;
             this.lbl_day.Font = new System.Drawing.Font("Calibri", 18F);
             this.lbl_day.ForeColor = System.Drawing.Color.Black;
             this.lbl_day.Location = new System.Drawing.Point(23, 464);
@@ -209,6 +249,7 @@
             // lbl_temperature
             // 
             this.lbl_temperature.AutoSize = true;
+            this.lbl_temperature.BackColor = System.Drawing.Color.Transparent;
             this.lbl_temperature.Font = new System.Drawing.Font("Segoe UI", 54F);
             this.lbl_temperature.Location = new System.Drawing.Point(12, 355);
             this.lbl_temperature.Name = "lbl_temperature";
@@ -218,7 +259,8 @@
             // 
             // pbox_globalStatus
             // 
-            this.pbox_globalStatus.BaseColor = System.Drawing.Color.White;
+            this.pbox_globalStatus.BackColor = System.Drawing.Color.Transparent;
+            this.pbox_globalStatus.BaseColor = System.Drawing.Color.Transparent;
             this.pbox_globalStatus.Image = global::TinyWeather.Properties.Resources._11d;
             this.pbox_globalStatus.Location = new System.Drawing.Point(13, 130);
             this.pbox_globalStatus.Name = "pbox_globalStatus";
@@ -227,23 +269,25 @@
             this.pbox_globalStatus.TabIndex = 0;
             this.pbox_globalStatus.TabStop = false;
             // 
-            // gunaLabel1
+            // lbl_today
             // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel1.Location = new System.Drawing.Point(261, 18);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(59, 24);
-            this.gunaLabel1.TabIndex = 1;
-            this.gunaLabel1.Text = "Today";
+            this.lbl_today.AutoSize = true;
+            this.lbl_today.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_today.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_today.Location = new System.Drawing.Point(261, 18);
+            this.lbl_today.Name = "lbl_today";
+            this.lbl_today.Size = new System.Drawing.Size(59, 24);
+            this.lbl_today.TabIndex = 1;
+            this.lbl_today.Text = "Today";
             // 
-            // gunaSeparator1
+            // sep_day
             // 
-            this.gunaSeparator1.LineColor = System.Drawing.Color.Black;
-            this.gunaSeparator1.Location = new System.Drawing.Point(265, 45);
-            this.gunaSeparator1.Name = "gunaSeparator1";
-            this.gunaSeparator1.Size = new System.Drawing.Size(55, 10);
-            this.gunaSeparator1.TabIndex = 2;
+            this.sep_day.BackColor = System.Drawing.Color.Transparent;
+            this.sep_day.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(166)))), ((int)(((byte)(172)))));
+            this.sep_day.Location = new System.Drawing.Point(265, 45);
+            this.sep_day.Name = "sep_day";
+            this.sep_day.Size = new System.Drawing.Size(55, 10);
+            this.sep_day.TabIndex = 2;
             // 
             // rbtn_celsius
             // 
@@ -316,20 +360,20 @@
             this.rbtn_fahrenheit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.rbtn_fahrenheit.Click += new System.EventHandler(this.rbtn_fahrenheit_Click);
             // 
-            // gunaElipsePanel1
+            // pnl_humidity
             // 
-            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.White;
-            this.gunaElipsePanel1.Controls.Add(this.lbl_humidityText);
-            this.gunaElipsePanel1.Controls.Add(this.lbl_humidityUnit);
-            this.gunaElipsePanel1.Controls.Add(this.tbar_humidity);
-            this.gunaElipsePanel1.Controls.Add(this.lbl_humidity);
-            this.gunaElipsePanel1.Controls.Add(this.lbl_humidityTitle);
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(580, 367);
-            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Radius = 40;
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(283, 235);
-            this.gunaElipsePanel1.TabIndex = 5;
+            this.pnl_humidity.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_humidity.BaseColor = System.Drawing.Color.White;
+            this.pnl_humidity.Controls.Add(this.lbl_humidityText);
+            this.pnl_humidity.Controls.Add(this.lbl_humidityUnit);
+            this.pnl_humidity.Controls.Add(this.tbar_humidity);
+            this.pnl_humidity.Controls.Add(this.lbl_humidity);
+            this.pnl_humidity.Controls.Add(this.lbl_humidityTitle);
+            this.pnl_humidity.Location = new System.Drawing.Point(580, 367);
+            this.pnl_humidity.Name = "pnl_humidity";
+            this.pnl_humidity.Radius = 40;
+            this.pnl_humidity.Size = new System.Drawing.Size(283, 235);
+            this.pnl_humidity.TabIndex = 5;
             // 
             // lbl_humidityText
             // 
@@ -387,19 +431,19 @@
             this.lbl_humidityTitle.TabIndex = 3;
             this.lbl_humidityTitle.Text = "Humidity";
             // 
-            // gunaElipsePanel2
+            // pnl_visibility
             // 
-            this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.White;
-            this.gunaElipsePanel2.Controls.Add(this.lbl_visibilityText);
-            this.gunaElipsePanel2.Controls.Add(this.lbl_visibilityUnit);
-            this.gunaElipsePanel2.Controls.Add(this.lbl_visibility);
-            this.gunaElipsePanel2.Controls.Add(this.lbl_visibilityTitle);
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(265, 367);
-            this.gunaElipsePanel2.Name = "gunaElipsePanel2";
-            this.gunaElipsePanel2.Radius = 40;
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(283, 235);
-            this.gunaElipsePanel2.TabIndex = 6;
+            this.pnl_visibility.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_visibility.BaseColor = System.Drawing.Color.White;
+            this.pnl_visibility.Controls.Add(this.lbl_visibilityText);
+            this.pnl_visibility.Controls.Add(this.lbl_visibilityUnit);
+            this.pnl_visibility.Controls.Add(this.lbl_visibility);
+            this.pnl_visibility.Controls.Add(this.lbl_visibilityTitle);
+            this.pnl_visibility.Location = new System.Drawing.Point(265, 367);
+            this.pnl_visibility.Name = "pnl_visibility";
+            this.pnl_visibility.Radius = 40;
+            this.pnl_visibility.Size = new System.Drawing.Size(283, 235);
+            this.pnl_visibility.TabIndex = 6;
             // 
             // lbl_visibilityText
             // 
@@ -444,19 +488,19 @@
             this.lbl_visibilityTitle.TabIndex = 2;
             this.lbl_visibilityTitle.Text = "Visibility";
             // 
-            // gunaElipsePanel3
+            // pnl_wind
             // 
-            this.gunaElipsePanel3.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel3.BaseColor = System.Drawing.Color.White;
-            this.gunaElipsePanel3.Controls.Add(this.lbl_windDirection);
-            this.gunaElipsePanel3.Controls.Add(this.lbl_windUnit);
-            this.gunaElipsePanel3.Controls.Add(this.lbl_windSpeed);
-            this.gunaElipsePanel3.Controls.Add(this.lbl_windTitle);
-            this.gunaElipsePanel3.Location = new System.Drawing.Point(265, 108);
-            this.gunaElipsePanel3.Name = "gunaElipsePanel3";
-            this.gunaElipsePanel3.Radius = 40;
-            this.gunaElipsePanel3.Size = new System.Drawing.Size(283, 235);
-            this.gunaElipsePanel3.TabIndex = 8;
+            this.pnl_wind.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_wind.BaseColor = System.Drawing.Color.White;
+            this.pnl_wind.Controls.Add(this.lbl_windDirection);
+            this.pnl_wind.Controls.Add(this.lbl_windUnit);
+            this.pnl_wind.Controls.Add(this.lbl_windSpeed);
+            this.pnl_wind.Controls.Add(this.lbl_windTitle);
+            this.pnl_wind.Location = new System.Drawing.Point(265, 108);
+            this.pnl_wind.Name = "pnl_wind";
+            this.pnl_wind.Radius = 40;
+            this.pnl_wind.Size = new System.Drawing.Size(283, 235);
+            this.pnl_wind.TabIndex = 8;
             // 
             // lbl_windDirection
             // 
@@ -501,19 +545,19 @@
             this.lbl_windTitle.TabIndex = 1;
             this.lbl_windTitle.Text = "Wind Status";
             // 
-            // pbox_sunriseSunset
+            // pnl_sunriseSunset
             // 
-            this.pbox_sunriseSunset.BackColor = System.Drawing.Color.Transparent;
-            this.pbox_sunriseSunset.BaseColor = System.Drawing.Color.White;
-            this.pbox_sunriseSunset.Controls.Add(this.lbl_sunset);
-            this.pbox_sunriseSunset.Controls.Add(this.lbl_sunrise);
-            this.pbox_sunriseSunset.Controls.Add(this.gunaPictureBox1);
-            this.pbox_sunriseSunset.Controls.Add(this.lbl_sunriseSunsetTitle);
-            this.pbox_sunriseSunset.Location = new System.Drawing.Point(580, 108);
-            this.pbox_sunriseSunset.Name = "pbox_sunriseSunset";
-            this.pbox_sunriseSunset.Radius = 40;
-            this.pbox_sunriseSunset.Size = new System.Drawing.Size(283, 235);
-            this.pbox_sunriseSunset.TabIndex = 7;
+            this.pnl_sunriseSunset.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_sunriseSunset.BaseColor = System.Drawing.Color.White;
+            this.pnl_sunriseSunset.Controls.Add(this.lbl_sunset);
+            this.pnl_sunriseSunset.Controls.Add(this.lbl_sunrise);
+            this.pnl_sunriseSunset.Controls.Add(this.pbox_sunriseSunset);
+            this.pnl_sunriseSunset.Controls.Add(this.lbl_sunriseSunsetTitle);
+            this.pnl_sunriseSunset.Location = new System.Drawing.Point(580, 108);
+            this.pnl_sunriseSunset.Name = "pnl_sunriseSunset";
+            this.pnl_sunriseSunset.Radius = 40;
+            this.pnl_sunriseSunset.Size = new System.Drawing.Size(283, 235);
+            this.pnl_sunriseSunset.TabIndex = 7;
             // 
             // lbl_sunset
             // 
@@ -537,16 +581,16 @@
             this.lbl_sunrise.TabIndex = 2;
             this.lbl_sunrise.Text = "6:35 AM";
             // 
-            // gunaPictureBox1
+            // pbox_sunriseSunset
             // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = global::TinyWeather.Properties.Resources.sunsetsunrise;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(38, 61);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(64, 145);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox1.TabIndex = 1;
-            this.gunaPictureBox1.TabStop = false;
+            this.pbox_sunriseSunset.BaseColor = System.Drawing.Color.White;
+            this.pbox_sunriseSunset.Image = global::TinyWeather.Properties.Resources.sunsetsunrise;
+            this.pbox_sunriseSunset.Location = new System.Drawing.Point(38, 61);
+            this.pbox_sunriseSunset.Name = "pbox_sunriseSunset";
+            this.pbox_sunriseSunset.Size = new System.Drawing.Size(64, 145);
+            this.pbox_sunriseSunset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_sunriseSunset.TabIndex = 1;
+            this.pbox_sunriseSunset.TabStop = false;
             // 
             // lbl_sunriseSunsetTitle
             // 
@@ -563,30 +607,21 @@
             // 
             this.drag_form.TargetControl = this;
             // 
-            // lbl_cityName
+            // btn_close
             // 
-            this.lbl_cityName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cityName.ForeColor = System.Drawing.Color.Black;
-            this.lbl_cityName.Location = new System.Drawing.Point(3, 77);
-            this.lbl_cityName.Name = "lbl_cityName";
-            this.lbl_cityName.Size = new System.Drawing.Size(229, 41);
-            this.lbl_cityName.TabIndex = 17;
-            this.lbl_cityName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gunaControlBox1
-            // 
-            this.gunaControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaControlBox1.AnimationHoverSpeed = 0.07F;
-            this.gunaControlBox1.AnimationSpeed = 0.03F;
-            this.gunaControlBox1.IconColor = System.Drawing.Color.Black;
-            this.gunaControlBox1.IconSize = 15F;
-            this.gunaControlBox1.Location = new System.Drawing.Point(838, 17);
-            this.gunaControlBox1.Name = "gunaControlBox1";
-            this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.Red;
-            this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
-            this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.gunaControlBox1.TabIndex = 9;
+            this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_close.AnimationHoverSpeed = 0.07F;
+            this.btn_close.AnimationSpeed = 0.03F;
+            this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.IconColor = System.Drawing.Color.Black;
+            this.btn_close.IconSize = 15F;
+            this.btn_close.Location = new System.Drawing.Point(838, 17);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.OnHoverBackColor = System.Drawing.Color.Red;
+            this.btn_close.OnHoverIconColor = System.Drawing.Color.White;
+            this.btn_close.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_close.Size = new System.Drawing.Size(45, 29);
+            this.btn_close.TabIndex = 9;
             // 
             // form_main
             // 
@@ -594,33 +629,35 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(900, 644);
-            this.Controls.Add(this.gunaControlBox1);
-            this.Controls.Add(this.gunaElipsePanel3);
-            this.Controls.Add(this.pbox_sunriseSunset);
-            this.Controls.Add(this.gunaElipsePanel2);
-            this.Controls.Add(this.gunaElipsePanel1);
+            this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.pnl_wind);
+            this.Controls.Add(this.pnl_sunriseSunset);
+            this.Controls.Add(this.pnl_visibility);
+            this.Controls.Add(this.pnl_humidity);
             this.Controls.Add(this.rbtn_fahrenheit);
             this.Controls.Add(this.rbtn_celsius);
-            this.Controls.Add(this.gunaSeparator1);
-            this.Controls.Add(this.gunaLabel1);
+            this.Controls.Add(this.sep_day);
+            this.Controls.Add(this.lbl_today);
             this.Controls.Add(this.pnl_left);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form_main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TinyWeather";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnl_left.ResumeLayout(false);
             this.pnl_left.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).EndInit();
-            this.gunaElipsePanel1.ResumeLayout(false);
-            this.gunaElipsePanel1.PerformLayout();
-            this.gunaElipsePanel2.ResumeLayout(false);
-            this.gunaElipsePanel2.PerformLayout();
-            this.gunaElipsePanel3.ResumeLayout(false);
-            this.gunaElipsePanel3.PerformLayout();
-            this.pbox_sunriseSunset.ResumeLayout(false);
-            this.pbox_sunriseSunset.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
+            this.pnl_humidity.ResumeLayout(false);
+            this.pnl_humidity.PerformLayout();
+            this.pnl_visibility.ResumeLayout(false);
+            this.pnl_visibility.PerformLayout();
+            this.pnl_wind.ResumeLayout(false);
+            this.pnl_wind.PerformLayout();
+            this.pnl_sunriseSunset.ResumeLayout(false);
+            this.pnl_sunriseSunset.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunriseSunset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,16 +669,16 @@
         private Guna.UI.WinForms.GunaPanel pnl_left;
         private Guna.UI.WinForms.GunaAdvenceButton rbtn_fahrenheit;
         private Guna.UI.WinForms.GunaAdvenceButton rbtn_celsius;
-        private Guna.UI.WinForms.GunaSeparator gunaSeparator1;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel3;
+        private Guna.UI.WinForms.GunaSeparator sep_day;
+        private Guna.UI.WinForms.GunaLabel lbl_today;
+        private Guna.UI.WinForms.GunaElipsePanel pnl_wind;
         private Guna.UI.WinForms.GunaLabel lbl_windTitle;
-        private Guna.UI.WinForms.GunaElipsePanel pbox_sunriseSunset;
+        private Guna.UI.WinForms.GunaElipsePanel pnl_sunriseSunset;
         private Guna.UI.WinForms.GunaLabel lbl_sunriseSunsetTitle;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
+        private Guna.UI.WinForms.GunaElipsePanel pnl_visibility;
         private Guna.UI.WinForms.GunaLabel lbl_visibilityTitle;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
-        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        private Guna.UI.WinForms.GunaElipsePanel pnl_humidity;
+        private Guna.UI.WinForms.GunaPictureBox pbox_sunriseSunset;
         private Guna.UI.WinForms.GunaLabel lbl_humidityTitle;
         private Guna.UI.WinForms.GunaLabel lbl_windDirection;
         private Guna.UI.WinForms.GunaLabel lbl_windUnit;
@@ -661,13 +698,14 @@
         private Guna.UI.WinForms.GunaLabel lbl_temperature;
         private Guna.UI.WinForms.GunaPictureBox pbox_globalStatus;
         private Guna.UI.WinForms.GunaDragControl drag_form;
-        private Guna.UI.WinForms.GunaSeparator gunaSeparator2;
+        private Guna.UI.WinForms.GunaSeparator sep_left;
         private Guna.UI.WinForms.GunaPictureBox pbox_city;
         private Guna.UI.WinForms.GunaLabel lbl_description;
         private Guna.UI.WinForms.GunaCircleButton btn_search;
         private Guna.UI.WinForms.GunaLineTextBox tbox_search;
         private Guna.UI.WinForms.GunaLabel lbl_cityName;
-        private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
+        private Guna.UI.WinForms.GunaControlBox btn_close;
+        private Guna.UI.WinForms.GunaCircleButton btn_settings;
     }
 }
 

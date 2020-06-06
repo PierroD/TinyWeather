@@ -32,9 +32,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI">
       <HintPath>C:\Users\Light\Downloads\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>C:\Users\Light\Downloads\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -46,6 +52,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -69,12 +76,23 @@
     <Compile Include="form_main.Designer.cs">
       <DependentUpon>form_main.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_settings.Designer.cs">
+      <DependentUpon>form_settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\WeatherModel.cs" />
     <Compile Include="Models\WeatherResultModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\INIFile.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="form_main.resx">
       <DependentUpon>form_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_settings.resx">
+      <DependentUpon>form_settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -162,6 +180,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
