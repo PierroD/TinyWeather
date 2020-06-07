@@ -43,6 +43,8 @@
             this.gunaVSeparator1 = new Guna.UI.WinForms.GunaVSeparator();
             this.drag_form = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.notifyIcon_save = new System.Windows.Forms.NotifyIcon(this.components);
+            this.lbl_refreshTime = new Guna.UI.WinForms.GunaLabel();
+            this.num_refreshTime = new Guna.UI.WinForms.GunaNumeric();
             this.SuspendLayout();
             // 
             // elipse_form
@@ -93,7 +95,7 @@
             this.sw_darkMode.CheckedOffColor = System.Drawing.Color.DarkGray;
             this.sw_darkMode.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.sw_darkMode.FillColor = System.Drawing.Color.White;
-            this.sw_darkMode.Location = new System.Drawing.Point(135, 155);
+            this.sw_darkMode.Location = new System.Drawing.Point(135, 180);
             this.sw_darkMode.Name = "sw_darkMode";
             this.sw_darkMode.Size = new System.Drawing.Size(40, 22);
             this.sw_darkMode.TabIndex = 4;
@@ -102,7 +104,7 @@
             // 
             this.lbl_darkMode.AutoSize = true;
             this.lbl_darkMode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_darkMode.Location = new System.Drawing.Point(23, 155);
+            this.lbl_darkMode.Location = new System.Drawing.Point(23, 180);
             this.lbl_darkMode.Name = "lbl_darkMode";
             this.lbl_darkMode.Size = new System.Drawing.Size(76, 19);
             this.lbl_darkMode.TabIndex = 5;
@@ -212,12 +214,41 @@
             this.notifyIcon_save.Text = "TinyWeather";
             this.notifyIcon_save.Visible = true;
             // 
+            // lbl_refreshTime
+            // 
+            this.lbl_refreshTime.AutoSize = true;
+            this.lbl_refreshTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_refreshTime.Location = new System.Drawing.Point(23, 121);
+            this.lbl_refreshTime.Name = "lbl_refreshTime";
+            this.lbl_refreshTime.Size = new System.Drawing.Size(140, 19);
+            this.lbl_refreshTime.TabIndex = 11;
+            this.lbl_refreshTime.Text = "RefreshTime (in ms)";
+            // 
+            // num_refreshTime
+            // 
+            this.num_refreshTime.BaseColor = System.Drawing.Color.White;
+            this.num_refreshTime.BorderColor = System.Drawing.Color.Silver;
+            this.num_refreshTime.ButtonColor = System.Drawing.Color.DodgerBlue;
+            this.num_refreshTime.ButtonForeColor = System.Drawing.Color.White;
+            this.num_refreshTime.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.num_refreshTime.ForeColor = System.Drawing.Color.Black;
+            this.num_refreshTime.Location = new System.Drawing.Point(67, 143);
+            this.num_refreshTime.Maximum = ((long)(9999999));
+            this.num_refreshTime.Minimum = ((long)(0));
+            this.num_refreshTime.Name = "num_refreshTime";
+            this.num_refreshTime.Size = new System.Drawing.Size(75, 30);
+            this.num_refreshTime.TabIndex = 12;
+            this.num_refreshTime.Text = "gunaNumeric1";
+            this.num_refreshTime.Value = ((long)(1000));
+            // 
             // form_settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(450, 300);
+            this.Controls.Add(this.num_refreshTime);
+            this.Controls.Add(this.lbl_refreshTime);
             this.Controls.Add(this.gunaVSeparator1);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.tbox_cityName);
@@ -254,5 +285,7 @@
         private Guna.UI.WinForms.GunaVSeparator gunaVSeparator1;
         private Guna.UI.WinForms.GunaDragControl drag_form;
         private System.Windows.Forms.NotifyIcon notifyIcon_save;
+        private Guna.UI.WinForms.GunaNumeric num_refreshTime;
+        private Guna.UI.WinForms.GunaLabel lbl_refreshTime;
     }
 }

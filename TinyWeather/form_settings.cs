@@ -36,6 +36,7 @@ namespace TinyWeather
                 sw.Flush();
                 sw.WriteLine("[Settings]");
                 sw.WriteLine($"StartCity={tbox_cityName.Text}");
+                sw.WriteLine($"RefreshTime={num_refreshTime.Value}");
                 sw.WriteLine($"DarkMode={sw_darkMode.Checked}");
                 sw.Close();
             }

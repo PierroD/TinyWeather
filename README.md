@@ -37,7 +37,7 @@ Extraire l'archive (ne pas supprimer les .dll ils sont importants pour le bon fo
 
 Pour sélectionner une ville par défaut au démarrage de l'application, il suffit de cliquer sur l'icon en forme d'écrou.
 
-Une fenêtre va vous permettre de changer la ville par défaut ou de passer en mode sombre ("DarkMode").
+Une fenêtre va vous permettre de changer la ville par défaut, de passer en mode sombre ("DarkMode"), ainsi que de choisir la fréquence à laquelle les données sont rafraîchies (par défaut toutes les minutes)).
 ![ ](./screenshots/TinyWeather3.png)
 
 

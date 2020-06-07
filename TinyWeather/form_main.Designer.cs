@@ -71,6 +71,8 @@
             this.lbl_sunriseSunsetTitle = new Guna.UI.WinForms.GunaLabel();
             this.drag_form = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.btn_close = new Guna.UI.WinForms.GunaControlBox();
+            this.timer_refresh = new System.Windows.Forms.Timer(this.components);
+            this.btn_minimize = new Guna.UI.WinForms.GunaControlBox();
             this.pnl_left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).BeginInit();
@@ -310,7 +312,7 @@
             this.rbtn_celsius.Image = null;
             this.rbtn_celsius.ImageSize = new System.Drawing.Size(20, 20);
             this.rbtn_celsius.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.rbtn_celsius.Location = new System.Drawing.Point(702, 10);
+            this.rbtn_celsius.Location = new System.Drawing.Point(655, 10);
             this.rbtn_celsius.Name = "rbtn_celsius";
             this.rbtn_celsius.OnHoverBaseColor = System.Drawing.Color.DimGray;
             this.rbtn_celsius.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -345,7 +347,7 @@
             this.rbtn_fahrenheit.Image = null;
             this.rbtn_fahrenheit.ImageSize = new System.Drawing.Size(20, 20);
             this.rbtn_fahrenheit.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.rbtn_fahrenheit.Location = new System.Drawing.Point(763, 10);
+            this.rbtn_fahrenheit.Location = new System.Drawing.Point(716, 10);
             this.rbtn_fahrenheit.Name = "rbtn_fahrenheit";
             this.rbtn_fahrenheit.OnHoverBaseColor = System.Drawing.Color.DimGray;
             this.rbtn_fahrenheit.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -623,12 +625,36 @@
             this.btn_close.Size = new System.Drawing.Size(45, 29);
             this.btn_close.TabIndex = 9;
             // 
+            // timer_refresh
+            // 
+            this.timer_refresh.Enabled = true;
+            this.timer_refresh.Interval = 1000;
+            this.timer_refresh.Tick += new System.EventHandler(this.timer_refresh_Tick);
+            // 
+            // btn_minimize
+            // 
+            this.btn_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_minimize.AnimationHoverSpeed = 0.07F;
+            this.btn_minimize.AnimationSpeed = 0.03F;
+            this.btn_minimize.BackColor = System.Drawing.Color.Transparent;
+            this.btn_minimize.ControlBoxType = Guna.UI.WinForms.FormControlBoxType.MinimizeBox;
+            this.btn_minimize.IconColor = System.Drawing.Color.Black;
+            this.btn_minimize.IconSize = 15F;
+            this.btn_minimize.Location = new System.Drawing.Point(785, 17);
+            this.btn_minimize.Name = "btn_minimize";
+            this.btn_minimize.OnHoverBackColor = System.Drawing.Color.Red;
+            this.btn_minimize.OnHoverIconColor = System.Drawing.Color.White;
+            this.btn_minimize.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_minimize.Size = new System.Drawing.Size(45, 29);
+            this.btn_minimize.TabIndex = 10;
+            // 
             // form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(900, 644);
+            this.Controls.Add(this.btn_minimize);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.pnl_wind);
             this.Controls.Add(this.pnl_sunriseSunset);
@@ -706,6 +732,8 @@
         private Guna.UI.WinForms.GunaLabel lbl_cityName;
         private Guna.UI.WinForms.GunaControlBox btn_close;
         private Guna.UI.WinForms.GunaCircleButton btn_settings;
+        private System.Windows.Forms.Timer timer_refresh;
+        private Guna.UI.WinForms.GunaControlBox btn_minimize;
     }
 }
 

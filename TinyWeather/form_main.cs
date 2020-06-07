@@ -24,14 +24,20 @@ namespace TinyWeather
             InitializeComponent();
         }
         static string configFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\config.ini";
-       
+
         INIFile ini = new INIFile(configFile);
         private void Form1_Load(object sender, EventArgs e)
         {
             if (File.Exists(configFile))
+            {
                 LoadElements(ini.IniReadValue("Settings", "StartCity"));
+                timer_refresh.Interval = Convert.ToInt32(ini.IniReadValue("Settings", "RefreshTime"));
+            }
             else
+            {
                 LoadElements("London");
+                timer_refresh.Interval = 1000;
+            }
 
             #region Darkmode
             (Color, Color, Color) colors = Utils.Utils.CheckDarkMode(bool.Parse(ini.IniReadValue("Settings", "DarkMode")));
@@ -54,6 +60,7 @@ namespace TinyWeather
             #region main
             lbl_today.ForeColor = colors.Item3;
             btn_close.IconColor = colors.Item3;
+            btn_minimize.IconColor = colors.Item3;
 
             #region Wind
             lbl_windSpeed.ForeColor = colors.Item3;
@@ -210,14 +217,15 @@ namespace TinyWeather
         }
         #endregion
 
-        Form settings = null;
+
         private void btn_settings_Click(object sender, EventArgs e)
         {
-            if (settings == null)
-                settings = new form_settings();
-
-            settings.Show();
+            new form_settings().Show();
         }
 
+        private void timer_refresh_Tick(object sender, EventArgs e)
+        {
+            LoadElements(lbl_cityName.Text);
+        }
     }
 }
