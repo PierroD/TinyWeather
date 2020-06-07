@@ -73,6 +73,7 @@
             this.btn_close = new Guna.UI.WinForms.GunaControlBox();
             this.timer_refresh = new System.Windows.Forms.Timer(this.components);
             this.btn_minimize = new Guna.UI.WinForms.GunaControlBox();
+            this.notifyicon_TW = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnl_left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).BeginInit();
@@ -647,6 +648,12 @@
             this.btn_minimize.OnPressedColor = System.Drawing.Color.Black;
             this.btn_minimize.Size = new System.Drawing.Size(45, 29);
             this.btn_minimize.TabIndex = 10;
+            this.btn_minimize.Click += new System.EventHandler(this.btn_minimize_Click);
+            // 
+            // notifyicon_TW
+            // 
+            this.notifyicon_TW.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyicon_TW.Icon")));
+            this.notifyicon_TW.Text = "TinyWeather";
             // 
             // form_main
             // 
@@ -734,6 +741,7 @@
         private Guna.UI.WinForms.GunaCircleButton btn_settings;
         private System.Windows.Forms.Timer timer_refresh;
         private Guna.UI.WinForms.GunaControlBox btn_minimize;
+        private System.Windows.Forms.NotifyIcon notifyicon_TW;
     }
 }
 

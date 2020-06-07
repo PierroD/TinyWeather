@@ -29,16 +29,30 @@ Les sources des documents utilisés :
 
 ## Installer & utiliser 
 
+### Installer
+
 Télécharger le lien ci dessous :
 
 TinyWeather release : <a href="https://github.com/PierroD/TinyWeather/raw/master/TinyWeather/bin/Release/TinyWeather.zip">Download link</a>
 
-Extraire l'archive (ne pas supprimer les .dll ils sont importants pour le bon fonctionnement de l'appliation).
+Extraire l'archive.
+
+### Utiliser
 
 Pour sélectionner une ville par défaut au démarrage de l'application, il suffit de cliquer sur l'icon en forme d'écrou.
 
-Une fenêtre va vous permettre de changer la ville par défaut, de passer en mode sombre ("DarkMode"), ainsi que de choisir la fréquence à laquelle les données sont rafraîchies (par défaut toutes les minutes)).
-![ ](./screenshots/TinyWeather3.png)
+Une fenêtre va vous permettre de changer la ville par défaut, de passer en mode sombre ("DarkMode"), ainsi que de choisir la fréquence à laquelle les données sont rafraîchies (par défaut toutes les 10 minutes)).
+
+Vous pouvez maintenant faire en sorte que TinyWeather se lance au démarrage.
+
+## Widget
+
+Il vous suffit de minimiser l'application, et pour revenir à l'affichage de base il vous suffit de double clicker sur le widget.
+
+ Vous pouvez choisir de l'avoir en mode "TopMost" c'est à dire que TinyWeather apparaitra par dessus n'importe quelle application, sinon TinyWeather sera seulement visible sur le bureau.
+
+
+![ ](./screenshots/TinyWeather4.png)
 
 
 ## Rendu final

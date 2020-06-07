@@ -24,7 +24,6 @@ namespace TinyWeather
             InitializeComponent();
         }
         static string configFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\config.ini";
-
         INIFile ini = new INIFile(configFile);
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -217,15 +216,23 @@ namespace TinyWeather
         }
         #endregion
 
+        private void timer_refresh_Tick(object sender, EventArgs e)
+        {
+            LoadElements(lbl_cityName.Text);
+        }
 
         private void btn_settings_Click(object sender, EventArgs e)
         {
             new form_settings().Show();
         }
-
-        private void timer_refresh_Tick(object sender, EventArgs e)
+        static Form widget;
+        private void btn_minimize_Click(object sender, EventArgs e)
         {
-            LoadElements(lbl_cityName.Text);
+            this.Visible = false;
+            widget = new form_widget(this);
+            widget.Show();
+            notifyicon_TW.Visible = true;
         }
+
     }
 }
