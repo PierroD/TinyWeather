@@ -31,12 +31,12 @@ namespace TinyWeather
             if (File.Exists(configFile))
             {
                 LoadElements(ini.IniReadValue("Settings", "StartCity"));
-                timer_refresh.Interval = Convert.ToInt32(ini.IniReadValue("Settings", "RefreshTime"));
+                timer_refresh.Interval = Convert.ToInt32(ini.IniReadValue("Settings", "RefreshTime")) * 1000;
             }
             else
             {
                 LoadElements("London");
-                timer_refresh.Interval = 1000;
+                timer_refresh.Interval = 10000;
             }
             this.AutoSize = true;
             this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - (this.Width / 2), 0);

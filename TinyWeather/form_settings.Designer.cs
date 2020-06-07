@@ -230,9 +230,9 @@
             this.lbl_refreshTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_refreshTime.Location = new System.Drawing.Point(23, 143);
             this.lbl_refreshTime.Name = "lbl_refreshTime";
-            this.lbl_refreshTime.Size = new System.Drawing.Size(140, 19);
+            this.lbl_refreshTime.Size = new System.Drawing.Size(157, 19);
             this.lbl_refreshTime.TabIndex = 11;
-            this.lbl_refreshTime.Text = "RefreshTime (in ms)";
+            this.lbl_refreshTime.Text = "RefreshTime (minutes)";
             // 
             // num_refreshTime
             // 
@@ -249,7 +249,7 @@
             this.num_refreshTime.Size = new System.Drawing.Size(75, 30);
             this.num_refreshTime.TabIndex = 12;
             this.num_refreshTime.Text = "gunaNumeric1";
-            this.num_refreshTime.Value = ((long)(10000));
+            this.num_refreshTime.Value = ((long)(10));
             // 
             // gunaSeparator1
             // 

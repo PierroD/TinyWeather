@@ -52,6 +52,8 @@ namespace TinyWeather
             tbox_cityName.ForeColor = colors.Item3;
             tbox_cityName.FocusedBaseColor = colors.Item1;
             tbox_cityName.FocusedForeColor = colors.Item3;
+            num_refreshTime.BaseColor = colors.Item1;
+            num_refreshTime.ForeColor = colors.Item3;
 
             checkAutoStart();
 
