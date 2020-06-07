@@ -38,6 +38,7 @@ namespace TinyWeather
                 LoadElements("London");
                 timer_refresh.Interval = 1000;
             }
+            this.AutoSize = true;
             this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - (this.Width / 2), 0);
            
             if (bool.Parse(ini.IniReadValue("Settings", "TopMost")))
