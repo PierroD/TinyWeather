@@ -32,18 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_main));
             this.elipse_form = new Guna.UI.WinForms.GunaElipse(this.components);
             this.pnl_left = new Guna.UI.WinForms.GunaPanel();
-            this.btn_settings = new Guna.UI.WinForms.GunaCircleButton();
             this.lbl_cityName = new Guna.UI.WinForms.GunaLabel();
-            this.btn_search = new Guna.UI.WinForms.GunaCircleButton();
             this.tbox_search = new Guna.UI.WinForms.GunaLineTextBox();
-            this.pbox_city = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_description = new Guna.UI.WinForms.GunaLabel();
             this.sep_left = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_hour = new Guna.UI.WinForms.GunaLabel();
             this.lbl_day = new Guna.UI.WinForms.GunaLabel();
             this.lbl_temperatureUnit = new Guna.UI.WinForms.GunaLabel();
             this.lbl_temperature = new Guna.UI.WinForms.GunaLabel();
-            this.pbox_globalStatus = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_today = new Guna.UI.WinForms.GunaLabel();
             this.sep_day = new Guna.UI.WinForms.GunaSeparator();
             this.rbtn_celsius = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -67,21 +63,27 @@
             this.pnl_sunriseSunset = new Guna.UI.WinForms.GunaElipsePanel();
             this.lbl_sunset = new Guna.UI.WinForms.GunaLabel();
             this.lbl_sunrise = new Guna.UI.WinForms.GunaLabel();
-            this.pbox_sunriseSunset = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_sunriseSunsetTitle = new Guna.UI.WinForms.GunaLabel();
             this.drag_form = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.btn_close = new Guna.UI.WinForms.GunaControlBox();
             this.timer_refresh = new System.Windows.Forms.Timer(this.components);
             this.btn_minimize = new Guna.UI.WinForms.GunaControlBox();
             this.notifyicon_TW = new System.Windows.Forms.NotifyIcon(this.components);
+            this.pbox_sunset = new Guna.UI.WinForms.GunaPictureBox();
+            this.pbox_sunrise = new Guna.UI.WinForms.GunaPictureBox();
+            this.btn_settings = new Guna.UI.WinForms.GunaCircleButton();
+            this.btn_search = new Guna.UI.WinForms.GunaCircleButton();
+            this.pbox_city = new Guna.UI.WinForms.GunaPictureBox();
+            this.pbox_globalStatus = new Guna.UI.WinForms.GunaPictureBox();
             this.pnl_left.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).BeginInit();
             this.pnl_humidity.SuspendLayout();
             this.pnl_visibility.SuspendLayout();
             this.pnl_wind.SuspendLayout();
             this.pnl_sunriseSunset.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunriseSunset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunrise)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // elipse_form
@@ -110,29 +112,6 @@
             this.pnl_left.Size = new System.Drawing.Size(232, 644);
             this.pnl_left.TabIndex = 0;
             // 
-            // btn_settings
-            // 
-            this.btn_settings.AnimationHoverSpeed = 0.07F;
-            this.btn_settings.AnimationSpeed = 0.03F;
-            this.btn_settings.BaseColor = System.Drawing.Color.White;
-            this.btn_settings.BorderColor = System.Drawing.Color.Black;
-            this.btn_settings.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_settings.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_settings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_settings.ForeColor = System.Drawing.Color.White;
-            this.btn_settings.Image = global::TinyWeather.Properties.Resources.settings_off;
-            this.btn_settings.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_settings.Location = new System.Drawing.Point(178, 581);
-            this.btn_settings.Name = "btn_settings";
-            this.btn_settings.OnHoverBaseColor = System.Drawing.Color.DimGray;
-            this.btn_settings.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_settings.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_settings.OnHoverImage = global::TinyWeather.Properties.Resources.settings_on;
-            this.btn_settings.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_settings.Size = new System.Drawing.Size(40, 40);
-            this.btn_settings.TabIndex = 18;
-            this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
-            // 
             // lbl_cityName
             // 
             this.lbl_cityName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,29 +121,6 @@
             this.lbl_cityName.Size = new System.Drawing.Size(229, 41);
             this.lbl_cityName.TabIndex = 17;
             this.lbl_cityName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_search
-            // 
-            this.btn_search.AnimationHoverSpeed = 0.07F;
-            this.btn_search.AnimationSpeed = 0.03F;
-            this.btn_search.BaseColor = System.Drawing.Color.White;
-            this.btn_search.BorderColor = System.Drawing.Color.Black;
-            this.btn_search.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_search.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_search.ForeColor = System.Drawing.Color.White;
-            this.btn_search.Image = global::TinyWeather.Properties.Resources.search;
-            this.btn_search.ImageSize = new System.Drawing.Size(22, 22);
-            this.btn_search.Location = new System.Drawing.Point(9, 27);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.OnHoverBaseColor = System.Drawing.Color.DimGray;
-            this.btn_search.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_search.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_search.OnHoverImage = global::TinyWeather.Properties.Resources.search_on;
-            this.btn_search.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_search.Size = new System.Drawing.Size(35, 35);
-            this.btn_search.TabIndex = 16;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // tbox_search
             // 
@@ -183,17 +139,6 @@
             this.tbox_search.Enter += new System.EventHandler(this.tbox_search_Enter);
             this.tbox_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbox_search_KeyPress);
             this.tbox_search.Leave += new System.EventHandler(this.tbox_search_Leave);
-            // 
-            // pbox_city
-            // 
-            this.pbox_city.BackColor = System.Drawing.Color.Transparent;
-            this.pbox_city.BaseColor = System.Drawing.Color.Transparent;
-            this.pbox_city.Location = new System.Drawing.Point(28, 557);
-            this.pbox_city.Name = "pbox_city";
-            this.pbox_city.Radius = 15;
-            this.pbox_city.Size = new System.Drawing.Size(95, 64);
-            this.pbox_city.TabIndex = 14;
-            this.pbox_city.TabStop = false;
             // 
             // lbl_description
             // 
@@ -259,18 +204,6 @@
             this.lbl_temperature.Size = new System.Drawing.Size(118, 96);
             this.lbl_temperature.TabIndex = 10;
             this.lbl_temperature.Text = "10";
-            // 
-            // pbox_globalStatus
-            // 
-            this.pbox_globalStatus.BackColor = System.Drawing.Color.Transparent;
-            this.pbox_globalStatus.BaseColor = System.Drawing.Color.Transparent;
-            this.pbox_globalStatus.Image = global::TinyWeather.Properties.Resources._11d;
-            this.pbox_globalStatus.Location = new System.Drawing.Point(13, 130);
-            this.pbox_globalStatus.Name = "pbox_globalStatus";
-            this.pbox_globalStatus.Size = new System.Drawing.Size(205, 196);
-            this.pbox_globalStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbox_globalStatus.TabIndex = 0;
-            this.pbox_globalStatus.TabStop = false;
             // 
             // lbl_today
             // 
@@ -552,9 +485,10 @@
             // 
             this.pnl_sunriseSunset.BackColor = System.Drawing.Color.Transparent;
             this.pnl_sunriseSunset.BaseColor = System.Drawing.Color.White;
+            this.pnl_sunriseSunset.Controls.Add(this.pbox_sunset);
             this.pnl_sunriseSunset.Controls.Add(this.lbl_sunset);
             this.pnl_sunriseSunset.Controls.Add(this.lbl_sunrise);
-            this.pnl_sunriseSunset.Controls.Add(this.pbox_sunriseSunset);
+            this.pnl_sunriseSunset.Controls.Add(this.pbox_sunrise);
             this.pnl_sunriseSunset.Controls.Add(this.lbl_sunriseSunsetTitle);
             this.pnl_sunriseSunset.Location = new System.Drawing.Point(580, 108);
             this.pnl_sunriseSunset.Name = "pnl_sunriseSunset";
@@ -583,17 +517,6 @@
             this.lbl_sunrise.Size = new System.Drawing.Size(86, 26);
             this.lbl_sunrise.TabIndex = 2;
             this.lbl_sunrise.Text = "6:35 AM";
-            // 
-            // pbox_sunriseSunset
-            // 
-            this.pbox_sunriseSunset.BaseColor = System.Drawing.Color.White;
-            this.pbox_sunriseSunset.Image = global::TinyWeather.Properties.Resources.sunsetsunrise;
-            this.pbox_sunriseSunset.Location = new System.Drawing.Point(38, 61);
-            this.pbox_sunriseSunset.Name = "pbox_sunriseSunset";
-            this.pbox_sunriseSunset.Size = new System.Drawing.Size(64, 145);
-            this.pbox_sunriseSunset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbox_sunriseSunset.TabIndex = 1;
-            this.pbox_sunriseSunset.TabStop = false;
             // 
             // lbl_sunriseSunsetTitle
             // 
@@ -655,6 +578,97 @@
             this.notifyicon_TW.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyicon_TW.Icon")));
             this.notifyicon_TW.Text = "TinyWeather";
             // 
+            // pbox_sunset
+            // 
+            this.pbox_sunset.BaseColor = System.Drawing.Color.Transparent;
+            this.pbox_sunset.Image = global::TinyWeather.Properties.Resources.moon;
+            this.pbox_sunset.Location = new System.Drawing.Point(38, 145);
+            this.pbox_sunset.Name = "pbox_sunset";
+            this.pbox_sunset.Size = new System.Drawing.Size(44, 44);
+            this.pbox_sunset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_sunset.TabIndex = 4;
+            this.pbox_sunset.TabStop = false;
+            // 
+            // pbox_sunrise
+            // 
+            this.pbox_sunrise.BaseColor = System.Drawing.Color.Transparent;
+            this.pbox_sunrise.Image = global::TinyWeather.Properties.Resources._01d;
+            this.pbox_sunrise.Location = new System.Drawing.Point(38, 76);
+            this.pbox_sunrise.Name = "pbox_sunrise";
+            this.pbox_sunrise.Size = new System.Drawing.Size(44, 44);
+            this.pbox_sunrise.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_sunrise.TabIndex = 1;
+            this.pbox_sunrise.TabStop = false;
+            // 
+            // btn_settings
+            // 
+            this.btn_settings.AnimationHoverSpeed = 0.07F;
+            this.btn_settings.AnimationSpeed = 0.03F;
+            this.btn_settings.BaseColor = System.Drawing.Color.White;
+            this.btn_settings.BorderColor = System.Drawing.Color.Black;
+            this.btn_settings.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_settings.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_settings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_settings.ForeColor = System.Drawing.Color.White;
+            this.btn_settings.Image = global::TinyWeather.Properties.Resources.settings_off;
+            this.btn_settings.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_settings.Location = new System.Drawing.Point(178, 581);
+            this.btn_settings.Name = "btn_settings";
+            this.btn_settings.OnHoverBaseColor = System.Drawing.Color.DimGray;
+            this.btn_settings.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_settings.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_settings.OnHoverImage = global::TinyWeather.Properties.Resources.settings_on;
+            this.btn_settings.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_settings.Size = new System.Drawing.Size(40, 40);
+            this.btn_settings.TabIndex = 18;
+            this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
+            // 
+            // btn_search
+            // 
+            this.btn_search.AnimationHoverSpeed = 0.07F;
+            this.btn_search.AnimationSpeed = 0.03F;
+            this.btn_search.BaseColor = System.Drawing.Color.White;
+            this.btn_search.BorderColor = System.Drawing.Color.Black;
+            this.btn_search.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_search.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_search.ForeColor = System.Drawing.Color.White;
+            this.btn_search.Image = global::TinyWeather.Properties.Resources.search;
+            this.btn_search.ImageSize = new System.Drawing.Size(22, 22);
+            this.btn_search.Location = new System.Drawing.Point(9, 27);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.OnHoverBaseColor = System.Drawing.Color.DimGray;
+            this.btn_search.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_search.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_search.OnHoverImage = global::TinyWeather.Properties.Resources.search_on;
+            this.btn_search.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_search.Size = new System.Drawing.Size(35, 35);
+            this.btn_search.TabIndex = 16;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // pbox_city
+            // 
+            this.pbox_city.BackColor = System.Drawing.Color.Transparent;
+            this.pbox_city.BaseColor = System.Drawing.Color.Transparent;
+            this.pbox_city.Location = new System.Drawing.Point(28, 557);
+            this.pbox_city.Name = "pbox_city";
+            this.pbox_city.Radius = 15;
+            this.pbox_city.Size = new System.Drawing.Size(95, 64);
+            this.pbox_city.TabIndex = 14;
+            this.pbox_city.TabStop = false;
+            // 
+            // pbox_globalStatus
+            // 
+            this.pbox_globalStatus.BackColor = System.Drawing.Color.Transparent;
+            this.pbox_globalStatus.BaseColor = System.Drawing.Color.Transparent;
+            this.pbox_globalStatus.Image = global::TinyWeather.Properties.Resources._11d;
+            this.pbox_globalStatus.Location = new System.Drawing.Point(13, 130);
+            this.pbox_globalStatus.Name = "pbox_globalStatus";
+            this.pbox_globalStatus.Size = new System.Drawing.Size(205, 196);
+            this.pbox_globalStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_globalStatus.TabIndex = 0;
+            this.pbox_globalStatus.TabStop = false;
+            // 
             // form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,8 +694,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnl_left.ResumeLayout(false);
             this.pnl_left.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).EndInit();
             this.pnl_humidity.ResumeLayout(false);
             this.pnl_humidity.PerformLayout();
             this.pnl_visibility.ResumeLayout(false);
@@ -690,7 +702,10 @@
             this.pnl_wind.PerformLayout();
             this.pnl_sunriseSunset.ResumeLayout(false);
             this.pnl_sunriseSunset.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunriseSunset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_sunrise)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_city)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -711,7 +726,7 @@
         private Guna.UI.WinForms.GunaElipsePanel pnl_visibility;
         private Guna.UI.WinForms.GunaLabel lbl_visibilityTitle;
         private Guna.UI.WinForms.GunaElipsePanel pnl_humidity;
-        private Guna.UI.WinForms.GunaPictureBox pbox_sunriseSunset;
+        private Guna.UI.WinForms.GunaPictureBox pbox_sunrise;
         private Guna.UI.WinForms.GunaLabel lbl_humidityTitle;
         private Guna.UI.WinForms.GunaLabel lbl_windDirection;
         private Guna.UI.WinForms.GunaLabel lbl_windUnit;
@@ -742,6 +757,7 @@
         private System.Windows.Forms.Timer timer_refresh;
         private Guna.UI.WinForms.GunaControlBox btn_minimize;
         private System.Windows.Forms.NotifyIcon notifyicon_TW;
+        private Guna.UI.WinForms.GunaPictureBox pbox_sunset;
     }
 }
 
