@@ -43,7 +43,7 @@ Une fenêtre va vous permettre de changer la ville par défaut, de passer en mod
 
 ## Rendu final
 
-### Londre
+### Paris
 
 ![ ](./screenshots/TinyWeather.png)
 
