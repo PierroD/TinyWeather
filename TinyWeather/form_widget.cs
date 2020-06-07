@@ -58,9 +58,9 @@ namespace TinyWeather
             pbox_globalStatus.Image = (Bitmap)Resources.ResourceManager.GetObject(weather.weather[0].icon);
 
             if (bool.Parse(ini.IniReadValue("Settings", "Fahreneit")))
-                lbl_temperature.Text = Math.Round(Utils.Utils.ktoCelsius(weather.main.temp), 1).ToString() + " °C";
-            else
                 lbl_temperature.Text = Math.Round(Utils.Utils.ktoFahreneit(weather.main.temp), 1).ToString() + " °F";
+            else
+                lbl_temperature.Text = Math.Round(Utils.Utils.ktoCelsius(weather.main.temp), 1).ToString() + " °C";
 
             lbl_cityName.Text = $"{weather.name}, {weather.sys.country}";
 
