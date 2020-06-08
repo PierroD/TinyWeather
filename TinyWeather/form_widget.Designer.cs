@@ -53,7 +53,7 @@
             this.pbox_globalStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbox_globalStatus.TabIndex = 0;
             this.pbox_globalStatus.TabStop = false;
-            this.pbox_globalStatus.DoubleClick += new System.EventHandler(this.pbox_globalStatus_DoubleClick);
+            this.pbox_globalStatus.DoubleClick += new System.EventHandler(this.CloseForm);
             // 
             // lbl_cityName
             // 
@@ -65,7 +65,7 @@
             this.lbl_cityName.Size = new System.Drawing.Size(62, 19);
             this.lbl_cityName.TabIndex = 1;
             this.lbl_cityName.Text = "Lyon, FR";
-            this.lbl_cityName.DoubleClick += new System.EventHandler(this.lbl_cityName_DoubleClick);
+            this.lbl_cityName.DoubleClick += new System.EventHandler(this.CloseForm);
             // 
             // lbl_temperature
             // 
@@ -77,7 +77,7 @@
             this.lbl_temperature.Size = new System.Drawing.Size(50, 23);
             this.lbl_temperature.TabIndex = 2;
             this.lbl_temperature.Text = "15 °C";
-            this.lbl_temperature.DoubleClick += new System.EventHandler(this.lbl_temperature_DoubleClick);
+            this.lbl_temperature.DoubleClick += new System.EventHandler(this.CloseForm);
             // 
             // timer_refresh
             // 
@@ -100,7 +100,7 @@
             this.Text = "TinyWeather - Widget";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_widget_FormClosing);
             this.Load += new System.EventHandler(this.form_widget_Load);
-            this.DoubleClick += new System.EventHandler(this.form_widget_DoubleClick);
+            this.DoubleClick += new System.EventHandler(this.CloseForm);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -68,25 +68,12 @@ namespace TinyWeather
         }
 
         #region show mainform
-        private void lbl_cityName_DoubleClick(object sender, EventArgs e)
+
+        private void CloseForm(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void pbox_globalStatus_DoubleClick(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void lbl_temperature_DoubleClick(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void form_widget_DoubleClick(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void form_widget_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Visible = true;

@@ -40,6 +40,7 @@ namespace TinyWeather
 
             }
 
+            #region Darkmode
             (Color, Color, Color) colors = Utils.Utils.CheckDarkMode(bool.Parse(ini.IniReadValue("Settings", "DarkMode")));
             this.BackColor = colors.Item2;
             btn_close.IconColor = colors.Item3;
@@ -54,6 +55,7 @@ namespace TinyWeather
             tbox_cityName.FocusedForeColor = colors.Item3;
             num_refreshTime.BaseColor = colors.Item1;
             num_refreshTime.ForeColor = colors.Item3;
+            #endregion
 
             checkAutoStart();
 
@@ -75,7 +77,7 @@ namespace TinyWeather
         }
         #endregion
 
-        #region save
+        #region save & create shortcut
         private void btn_save_Click(object sender, EventArgs e)
         {
 
@@ -93,10 +95,29 @@ namespace TinyWeather
                 sw.WriteLine($"TopMost={sw_topMost.Checked}");
                 sw.Close();
             }
-            notifyIcon_save.BalloonTipText = "Your settings has been saved successfully";
-            notifyIcon_save.Text = "TinyWeather";
-            notifyIcon_save.BalloonTipTitle = "Save Notification";
-            notifyIcon_save.Icon = SystemIcons.Application;
+
+            Notify("Your settings has been saved successfully", "TinyWeather", "Save Notification");
+        }
+        private void btn_createShortcut_Click(object sender, EventArgs e)
+        {
+            object shDesktop = (object)"Desktop";
+            WshShell shell = new WshShell();
+            string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\TinyWeather.lnk";
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
+            shortcut.Description = "New shortcut for TinyWeather";
+            shortcut.TargetPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\TinyWeather.exe";
+            shortcut.Save();
+
+            Notify("Shortcut created successfully", "TinyWeather", "Shortcut created");
+
+        }
+
+
+        private void Notify(string tipText, string text, string title)
+        {
+            notifyIcon_save.BalloonTipText = tipText;
+            notifyIcon_save.Text = text;
+            notifyIcon_save.BalloonTipTitle = title;
             notifyIcon_save.Visible = true;
             notifyIcon_save.ShowBalloonTip(1000);
         }
@@ -117,23 +138,6 @@ namespace TinyWeather
         }
         #endregion
 
-         private void btn_createShortcut_Click(object sender, EventArgs e)
-        {
-            object shDesktop = (object)"Desktop";
-            WshShell shell = new WshShell();
-            string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\TinyWeather.lnk";
-            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
-            shortcut.Description = "New shortcut for TinyWeather";
-            shortcut.TargetPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\TinyWeather.exe";
-            shortcut.Save();
-
-            notifyIcon_save.BalloonTipText = "Shortcut created successfully";
-            notifyIcon_save.Text = "TinyWeather";
-            notifyIcon_save.BalloonTipTitle = "Shortcut created";
-            notifyIcon_save.Visible = true;
-            notifyIcon_save.ShowBalloonTip(1000);
-        }
-
         private void btn_close_Click(object sender, EventArgs e)
         {
             DialogResult msg = MessageBox.Show("Do you want to restart TinyWeather ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -150,9 +154,15 @@ namespace TinyWeather
                 shortcut.Description = "New shortcut for TinyWeather";
                 shortcut.TargetPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\TinyWeather.exe";
                 shortcut.Save();
+
+                Notify("TinyWeather will now start with Windows", "TinyWeather", "Auto-Start Added");
             }
             else
+            {
                 System.IO.File.Delete(autoStart_path);
+                Notify("TinyWeather has been removed from Windows startup folder", "TinyWeather", "Auto-Start Removed");
+
+            }
 
             checkAutoStart();
         }
