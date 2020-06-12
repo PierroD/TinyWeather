@@ -13,3 +13,6 @@
 
 #ignore packages
 packages
+
+#ingore ini files (.ini)
+*.ini

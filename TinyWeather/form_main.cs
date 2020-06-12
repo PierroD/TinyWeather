@@ -14,6 +14,7 @@ using TinyWeather.Core;
 using TinyWeather.Properties;
 using System.Threading;
 using System.Reflection;
+using System.Net;
 
 namespace TinyWeather
 {
@@ -171,6 +172,9 @@ namespace TinyWeather
             }
             catch (Exception ex)
             {
+                if (ex is WebException)
+                    MessageBox.Show("Check your internet connection", "Can't reach internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 MessageBox.Show($"{tbox_search.Text} doesn't exist inside our database or in real life", "City not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
