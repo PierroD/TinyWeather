@@ -31,12 +31,12 @@ namespace TinyWeather
             if (File.Exists(configFile))
             {
                 LoadElements(ini.IniReadValue("Settings", "StartCity"));
-                timer_refresh.Interval = Convert.ToInt32(ini.IniReadValue("Settings", "RefreshTime")) * 1000;
+                timer_refresh.Interval = Convert.ToInt32(ini.IniReadValue("Settings", "RefreshTime")) * 60*1000; // time in the config * minutes
             }
             else
             {
                 LoadElements("London");
-                timer_refresh.Interval = 10000;
+                timer_refresh.Interval = 10*60*1000; // ten minutes
             }
 
             #region Darkmode
@@ -102,6 +102,9 @@ namespace TinyWeather
         {
             try
             {
+
+                connectedToInternet();
+
                 DateTime today = DateTime.Now;
 
                 weather = await WeatherService.load(cityName);
@@ -170,15 +173,24 @@ namespace TinyWeather
                 pbox_city.Load($"https://www.countryflags.io/{weather.sys.country}/shiny/64.png");
                 #endregion
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                if (ex is WebException)
-                    MessageBox.Show("Check your internet connection", "Can't reach internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 MessageBox.Show($"{tbox_search.Text} doesn't exist inside our database or in real life", "City not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void connectedToInternet()
+        {
+            try
+            {
+                using (new WebClient().OpenRead("http://google.com/generate_204")) ;
+            }
+            catch
+            {
+                timer_refresh.Stop();
+                MessageBox.Show("Check your internet connection, then start TinyWeather", "Can't reach internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+        }
 
         private void rbtn_celsius_Click(object sender, EventArgs e)
         {

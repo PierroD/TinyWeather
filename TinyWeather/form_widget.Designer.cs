@@ -35,6 +35,7 @@
             this.lbl_cityName = new Guna.UI.WinForms.GunaLabel();
             this.lbl_temperature = new Guna.UI.WinForms.GunaLabel();
             this.timer_refresh = new System.Windows.Forms.Timer(this.components);
+            this.drag_form = new Guna.UI.WinForms.GunaDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_globalStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +86,10 @@
             this.timer_refresh.Interval = 1000;
             this.timer_refresh.Tick += new System.EventHandler(this.timer_refresh_Tick);
             // 
+            // drag_form
+            // 
+            this.drag_form.TargetControl = this;
+            // 
             // form_widget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,5 +119,6 @@
         private Guna.UI.WinForms.GunaLabel lbl_cityName;
         private Guna.UI.WinForms.GunaPictureBox pbox_globalStatus;
         private System.Windows.Forms.Timer timer_refresh;
+        private Guna.UI.WinForms.GunaDragControl drag_form;
     }
 }

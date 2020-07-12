@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,19 +30,29 @@ namespace TinyWeather
         private void form_widget_Load(object sender, EventArgs e)
         {
             this.ShowInTaskbar = false;
+
             if (File.Exists(configFile))
             {
                 LoadElements(ini.IniReadValue("Settings", "StartCity"));
-                timer_refresh.Interval = Convert.ToInt32(ini.IniReadValue("Settings", "RefreshTime")) * 1000;
+                timer_refresh.Interval = Convert.ToInt32(ini.IniReadValue("Settings", "RefreshTime")) * 1000;//60*1000; // time in the config * minutes
             }
             else
             {
                 LoadElements("London");
-                timer_refresh.Interval = 10000;
+                timer_refresh.Interval = 10 * 60 * 1000;
             }
             this.AutoSize = true;
-            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - (this.Width / 2), 0);
-           
+
+            if (ConfigurationManager.AppSettings["PoseX"] != String.Empty && ConfigurationManager.AppSettings["PoseY"] != String.Empty)
+            {
+                this.Location = new Point(Convert.ToInt32(ConfigurationManager.AppSettings["PoseX"]), Convert.ToInt32(ConfigurationManager.AppSettings["PoseY"]));
+            }
+            else
+            {
+                this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - (this.Width / 2), 0);
+            }
+
+
             if (bool.Parse(ini.IniReadValue("Settings", "TopMost")))
                 this.TopMost = true;
 
@@ -54,6 +66,8 @@ namespace TinyWeather
 
         public async void LoadElements(string cityName)
         {
+            connectedToInternet();
+
             DateTime today = DateTime.Now;
             var weather = await WeatherService.load(cityName);
             pbox_globalStatus.Image = (Bitmap)Resources.ResourceManager.GetObject(weather.weather[0].icon);
@@ -67,10 +81,30 @@ namespace TinyWeather
 
         }
 
+        private void connectedToInternet()
+        {
+            try
+            {
+                using (new WebClient().OpenRead("http://google.com/generate_204")) ;
+            }
+            catch
+            {
+                timer_refresh.Stop();
+                MessageBox.Show("Check your internet connection, then start TinyWeather", "Can't reach internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+        }
+
+
         #region show mainform
 
         private void CloseForm(object sender, EventArgs e)
         {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["PoseX"].Value = this.Location.X.ToString();
+            config.AppSettings.Settings["PoseY"].Value = this.Location.Y.ToString();
+            config.Save();
+            ConfigurationManager.RefreshSection("appSettings");
             this.Close();
         }
 
