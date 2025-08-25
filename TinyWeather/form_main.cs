@@ -170,11 +170,12 @@ namespace TinyWeather
                 lbl_hour.Text = today.ToShortTimeString();
                 lbl_description.Text = weather.weather[0].description;
                 pbox_globalStatus.Image = (Bitmap)Resources.ResourceManager.GetObject(weather.weather[0].icon);
-                pbox_city.Load($"https://www.countryflags.io/{weather.sys.country}/shiny/64.png");
+                pbox_city.Load($"https://flagsapi.com/{weather.sys.country}/shiny/64.png");
                 #endregion
             }
-            catch (Exception)
+            catch (Exception error)
             {
+                Console.WriteLine(error.Message);
                 MessageBox.Show($"{tbox_search.Text} doesn't exist inside our database or in real life", "City not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
